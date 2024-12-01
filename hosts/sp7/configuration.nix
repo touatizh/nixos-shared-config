@@ -14,7 +14,7 @@
   boot.loader.grub.efiInstallAsRemovable = true;
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "gigaos";
+  networking.hostName = "sp7";
 
   networking.networkmanager.enable = true;
 
@@ -59,11 +59,6 @@
 
   hardware.bluetooth.enable = true;
 
-  hardware.tuxedo-rs = {
-    enable = true;
-    tailor-gui.enable = true;
-  };
-
   users.users.helmi = {
     isNormalUser = true;
     description = "Helmi";
@@ -76,7 +71,6 @@
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-  programs.home-manager.enable = true;
 
   environment.systemPackages = with pkgs; [
     iptsd
@@ -106,5 +100,5 @@
   services.openssh.enable = true;
   services.iptsd.enable = true;
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }
