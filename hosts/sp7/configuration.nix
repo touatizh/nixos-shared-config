@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./backup_strat.nix
+      ../backup_strat.nix
     ];
 
   boot.loader.grub.enable = true;
@@ -72,9 +72,10 @@
   home-manager.useUserPackages = true;
 
   environment.systemPackages = with pkgs; [
+    surface-control
     iptsd
     htop
-    auto-cpufreq
+    tlp
     thermald
     btrbk
     ntfs3g

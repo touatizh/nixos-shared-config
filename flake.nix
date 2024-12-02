@@ -28,11 +28,11 @@
         homeConfigurations.gigaosHome = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./hosts/gigaos/home-manager/home.nix
+            ./hosts/home-manager/home.nix
           ];
         };
 
-        nixosConfigurations.sp7 = nixpkgs.lib.nixosSystem {
+        nixosConfigurations.sp = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             ./hosts/sp7/configuration.nix
@@ -43,7 +43,7 @@
         homeConfigurations.spHome = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./hosts/sp7/home-manager/home.nix
+            ./hosts/home-manager/home.nix
           ];
         };
     };
