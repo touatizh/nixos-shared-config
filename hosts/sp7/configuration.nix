@@ -80,6 +80,7 @@
     btrbk
     ntfs3g
     borgbackup
+    gparted
     wget
     gcc
     libgcc
