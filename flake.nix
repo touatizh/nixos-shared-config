@@ -39,5 +39,12 @@
             home-manager.nixosModules.home-manager
           ];
         };
+
+        homeConfigurations.spHome = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./hosts/sp7/home-manager/home.nix
+          ];
+        };
     };
 }

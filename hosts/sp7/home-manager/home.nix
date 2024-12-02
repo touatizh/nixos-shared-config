@@ -1,27 +1,15 @@
 { config, pkgs, ... }:
 
 {
+  home.stateVersion = "24.11";
   home.username = "helmi";
   home.homeDirectory = "/home/helmi";
-
-  # Enable ZSH with plugins and themes
-  programs.zsh = {
-    enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "agnoster";
-      plugins = [ "git" "z" "history" "extract" ];
-    };
-  };
 
   # Enable Git and set global configurations
   programs.git = {
     enable = true;
     userEmail = "touatizh@gmail.com";
     userName = "Helmi Touati";
-    extraConfig = {
-      "alias.st" = "status";
-    };
   };
 
   # User-specific packages

@@ -12,7 +12,6 @@
   boot.loader.grub.device = "nodev";
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.grub.efiInstallAsRemovable = true;
-  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "sp7";
 
@@ -40,11 +39,11 @@
   services.desktopManager.plasma6.enable = true;
 
   services.xserver.xkb = {
-    layout = "en";
+    layout = "fr";
     variant = "nodeadkeys";
   };
 
-  console.keyMap = "en";
+  console.keyMap = "fr";
 
   services.printing.enable = true;
 
@@ -82,8 +81,6 @@
     borgbackup
     wget
     gcc
-    gparted
-    grub2
     libgcc
     gnumake
     libudev-zero
@@ -91,7 +88,7 @@
     qt5.qtwayland
     xorg.libxcb
     libxkbcommon
-    os-prober
+    home-manager
   ];
 
   networking.firewall.enable = true;
