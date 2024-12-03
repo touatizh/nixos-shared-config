@@ -22,13 +22,11 @@
           modules = [
             ./hosts/gigaos/configuration.nix
             home-manager.nixosModules.home-manager
-          ];
-        };
-
-        homeConfigurations.gigaosHome = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./hosts/home-manager/home.nix
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home.users.helmi = import ./hosts/home-manager/home.nix;
+            }
           ];
         };
 
@@ -37,10 +35,15 @@
           modules = [
             ./hosts/sp7/configuration.nix
             home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.helmi = import ./hosts/home-manager/home.nix;
+            }
           ];
         };
 
-        homeConfigurations.spHome = home-manager.lib.homeManagerConfiguration {
+        homeConfigurations.home = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             ./hosts/home-manager/home.nix
