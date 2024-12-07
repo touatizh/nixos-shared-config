@@ -56,6 +56,18 @@ in
     userName = "Helmi Touati";
   };
 
+  programs.fish = {
+      enable = true;
+      plugins = [
+        # Enable plugins
+        { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+        { name = "z"; src = pkgs.fishPlugins.z.src; }
+        { name = "fzf"; src = pkgs.fishPlugins.fzf-fish.src; }
+        { name = "autopair"; src = pkgs.fishPlugins.autopair.src; }
+        { name = "bass"; src = pkgs.fishPlugins.bass.src; }
+      ];
+    };
+
   # User-specific packages
   home.packages = with pkgs; [
     neovim
@@ -72,6 +84,10 @@ in
     git
     github-desktop
     zed-editor
+    nix-your-shell
+    starship
+    kitty
+    waybar
   ];
 
   programs.vscode = {
