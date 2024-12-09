@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 let
+  dotfiles = import /home/helmi/.nixOs-config/home/dotfiles.nix;
   vscExtensions = with pkgs.vscode-extensions; [
     aaron-bond.better-comments
     adpyke.codesnap
@@ -71,6 +72,8 @@ in
   # User-specific packages
   home.packages = with pkgs; [
     neovim
+    neofetch
+    krusader
     onlyoffice-bin
     libreoffice-qt6-fresh
     brave
@@ -88,6 +91,16 @@ in
     starship
     kitty
     waybar
+    wofi
+    grc
+    fzf
+    hyprshot
+    hyprlock
+    hypridle
+    hyprpaper
+    hyprwall
+    swaynotificationcenter
+    font-awesome
   ];
 
   programs.vscode = {
@@ -95,4 +108,7 @@ in
       package = pkgs.vscodium;
       extensions = with pkgs.vscode-extensions; vscExtensions;
     };
+
+  # Import dotfiles
+  home.file = dotfiles.home.file;
 }

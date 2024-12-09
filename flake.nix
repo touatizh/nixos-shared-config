@@ -25,7 +25,6 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home.users.helmi = import ./hosts/home-manager/home.nix;
             }
           ];
         };
@@ -38,7 +37,6 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.helmi = import ./hosts/home-manager/home.nix;
             }
           ];
         };
@@ -46,7 +44,7 @@
         homeConfigurations.home = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./hosts/home-manager/home.nix
+            ./home/home.nix
           ];
         };
     };

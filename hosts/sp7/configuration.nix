@@ -92,10 +92,6 @@
     libxkbcommon
     home-manager
     xdg-desktop-portal-hyprland
-    wofi
-    grc
-    fzf
-    font-awesome
   ];
 
   programs.hyprland.enable = true;
@@ -109,7 +105,7 @@
       fi
     '';
   };
-
+  
   networking.firewall.enable = true;
   services.thermald.enable = true;
   services.flatpak.enable = true;
