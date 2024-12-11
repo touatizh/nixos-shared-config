@@ -79,8 +79,9 @@ alias symlink='ln -s'
 
 # nix and nixOS
 alias auf='export NIXPKGS_ALLOW_UNFREE=1'
-alias confswf='sudo nixos-rebuild switch --flake'
-alias homeswf='home-manager switch --flake'
+alias spswall='sudo nixos-rebuild switch --flake .#sp && home-manager switch --flake .#home --impure'
+alias gigaswall='sudo nixos-rebuild switch --flake .#gigaos && home-manager switch --flake .#home --impure'
+alias homesw='home-manager switch --flake .#home --impure'
 
 # adding flags
 alias grep='grep --color=auto'
@@ -89,6 +90,7 @@ alias grep='grep --color=auto'
 alias jctl="journalctl -p 3 -xb"
 
 #git
+alias gstat='git status'
 alias addup='git add -u'
 alias addall='git add .'
 alias branch='git branch'
