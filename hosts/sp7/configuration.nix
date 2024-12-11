@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ../backup_strat.nix
+      ../nftables.nix
     ];
 
   boot.loader.grub.enable = true;
@@ -74,7 +75,7 @@
   environment.systemPackages = with pkgs; [
     surface-control
     iptsd
-    htop
+    btop
     tlp
     thermald
     btrbk
