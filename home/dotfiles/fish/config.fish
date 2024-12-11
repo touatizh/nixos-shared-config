@@ -79,7 +79,7 @@ alias symlink='ln -s'
 
 # nix and nixOS
 alias auf='export NIXPKGS_ALLOW_UNFREE=1'
-alias spswall='sudo nixos-rebuild switch --flake .#sp && home-manager switch --flake .#home --impure'
+alias spswall='sudo nixos-rebuild switch --flake .#sp --impure && home-manager switch --flake .#home --impure'
 alias gigaswall='sudo nixos-rebuild switch --flake .#gigaos && home-manager switch --flake .#home --impure'
 alias homesw='home-manager switch --flake .#home --impure'
 
