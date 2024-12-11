@@ -87,6 +87,7 @@ in
     git
     github-desktop
     zed-editor
+    discord
     nix-your-shell
     starship
     kitty
@@ -99,6 +100,8 @@ in
     hypridle
     hyprpaper
     hyprwall
+    hyprsunset
+    hyprpolkitagent
     swaynotificationcenter
     font-awesome
   ];
