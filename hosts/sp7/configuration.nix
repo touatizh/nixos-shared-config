@@ -3,6 +3,7 @@
 {
   imports =
     [
+      <nixos-hardware/microsoft/surface/surface-pro-intel>
       ./hardware-configuration.nix
       ../backup_strat.nix
       ../nftables.nix
