@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
     # Check if external drive is mounted
 
@@ -7,7 +7,7 @@
     fi
 
     # Setting this, so the credentials do not need to be given on the commandline:
-    export BORG_REPO="/run/media/helmi/2F2FF5D96643DF85/backups/home/"
+    export BORG_REPO="/run/media/helmi/1EC677026F8DEC66/borg-repos/sp/"
     export BORG_PASSPHRASE="htz94__cborg"
 
     # Define a log file
@@ -41,11 +41,8 @@
         --exclude 'home/*/.cache/*'     \
                                         \
         ::'{now}'          \
-        /snapshots                 \
-        /home/helmi/dotfiles        \
-        /home/helmi/media           \
-        /home/helmi/dev             \
-        /home/helmi/dVault       \
+        /home/helmi/.nixOs-config        \
+        /home/helmi/Documents           \
 
     backup_exit=$?
 
