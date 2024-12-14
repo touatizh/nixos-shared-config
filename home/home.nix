@@ -49,6 +49,15 @@ in
   home.stateVersion = "24.11";
   home.username = "helmi";
   home.homeDirectory = "/home/helmi";
+  
+  # Set environment variables
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND="1";
+    QT_QPA_PLATFORM="wayland";
+    SDL_VIDEODRIVER="wayland";
+
+  };
 
   # Enable Git and set global configurations
   programs.git = {
@@ -82,12 +91,13 @@ in
     remnote
     localsend
     fastfetch
-    vscodium
     codeium
     git
     github-desktop
     zed-editor
     discord
+    inkscape
+    bottles
     nix-your-shell
     starship
     kitty
@@ -108,7 +118,6 @@ in
 
   programs.vscode = {
       enable = true;
-      package = pkgs.vscodium;
       extensions = with pkgs.vscode-extensions; vscExtensions;
     };
 
