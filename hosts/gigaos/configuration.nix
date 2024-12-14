@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ./backup_strat.nix
+      ../nftables.nix
     ];
 
   boot.loader.grub.enable = true;
@@ -80,16 +81,15 @@
   home-manager.useUserPackages = true;
 
   environment.systemPackages = with pkgs; [
-    htop
-    auto-cpufreq
+    btop
+    tlp
     thermald
     btrbk
     ntfs3g
     borgbackup
+    gparted
     wget
     gcc
-    gparted
-    grub2
     libgcc
     gnumake
     libudev-zero
@@ -97,11 +97,11 @@
     qt5.qtwayland
     xorg.libxcb
     libxkbcommon
-    os-prober
     home-manager
-    grc
-    fzf
+    xdg-desktop-portal-hyprland
   ];
+
+  programs.hyprland.enable = true;
 
   programs.bash = {
     interactiveShellInit = ''
@@ -118,5 +118,5 @@
   services.flatpak.enable = true;
   services.openssh.enable = true;
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }
