@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./backup_strat.nix
+      #./backup_strat.nix
       ../nftables.nix
     ];
 
@@ -70,8 +70,6 @@
     description = "Helmi";
     extraGroups = [ "networkmanager" "wheel" ];
   };
-
-  h
 
   nixpkgs.config.allowUnfree = true;
 
