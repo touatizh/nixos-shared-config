@@ -49,7 +49,7 @@ in
   home.stateVersion = "24.11";
   home.username = "helmi";
   home.homeDirectory = "/home/helmi";
-  
+
   # Set environment variables
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
@@ -83,7 +83,6 @@ in
     neovim
     neofetch
     krusader
-    onlyoffice-bin
     libreoffice-qt6-fresh
     brave
     vlc
@@ -114,6 +113,8 @@ in
     hyprpolkitagent
     swaynotificationcenter
     font-awesome
+    wlogout
+    playerctl
   ];
 
   programs.vscode = {
@@ -123,4 +124,7 @@ in
 
   # Import dotfiles
   home.file = dotfiles.home.file;
+
+  # Font config
+  fonts.fontconfig.enable = true;
 }
