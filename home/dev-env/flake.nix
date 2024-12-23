@@ -11,6 +11,7 @@
             buildInputs = with pkgs; [
               python313
               poetry
+              uv
               black
               ruff
             ];
