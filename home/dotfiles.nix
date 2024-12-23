@@ -29,5 +29,9 @@ in
       source = BASEDIR+"/waybar";
       recursive = true;
     };
+    ".config/touchegg" = {
+      source = BASEDIR+"/touchegg";
+      recursive = true;
+    };
   };
 }

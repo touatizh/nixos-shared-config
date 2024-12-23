@@ -115,6 +115,10 @@ in
     font-awesome
     wlogout
     playerctl
+    libinput
+    squeekboard
+    touchegg
+    waycorner
   ];
 
   programs.vscode = {

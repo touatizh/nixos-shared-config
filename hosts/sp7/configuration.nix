@@ -113,7 +113,7 @@
   services.flatpak.enable = true;
   services.openssh.enable = true;
   services.iptsd.enable = true;
-  services.fontconfig.enable = true;
+  services.touchegg.enable = true;
 
   system.stateVersion = "24.11";
 }
