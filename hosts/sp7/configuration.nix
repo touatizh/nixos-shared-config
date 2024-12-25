@@ -34,11 +34,14 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.xserver.enable = false;
-
-  services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.xserver = {
+      enable = true;
+      displayManager = {
+        lightdm.enable = true;
+        lightdm.greeters.gtk.enable = true; # Or use another greeter, e.g., slick-greeter
+      };
+    };
+  programs.hyprland.enable = true;
 
   services.xserver.xkb = {
     layout = "fr";
@@ -97,8 +100,6 @@
     xdg-desktop-portal-hyprland
   ];
 
-  programs.hyprland.enable = true;
-
   programs.bash = {
     interactiveShellInit = ''
       if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
@@ -108,7 +109,7 @@
       fi
     '';
   };
-  
+
   networking.firewall.enable = true;
   services.thermald.enable = true;
   services.flatpak.enable = true;

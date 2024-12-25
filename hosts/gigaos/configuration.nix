@@ -34,11 +34,14 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.xserver.enable = false;
-
-  services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.xserver = {
+      enable = true;
+      displayManager = {
+        lightdm.enable = true;
+        lightdm.greeters.gtk.enable = true; # Or use another greeter, e.g., slick-greeter
+      };
+    };
+  programs.hyprland.enable = true;
 
   services.xserver.xkb = {
     layout = "es";
@@ -89,6 +92,7 @@
     wget
     gcc
     libgcc
+    libvirt
     gnumake
     libudev-zero
     qt5.qtbase
@@ -98,8 +102,6 @@
     home-manager
     xdg-desktop-portal-hyprland
   ];
-
-  programs.hyprland.enable = true;
 
   programs.bash = {
     interactiveShellInit = ''
