@@ -86,6 +86,7 @@
     wget
     gcc
     libgcc
+    libvirt
     gnumake
     libudev-zero
     qt5.qtbase

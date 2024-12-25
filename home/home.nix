@@ -80,8 +80,10 @@ in
 
   # User-specific packages
   home.packages = with pkgs; [
+    qemu
+    glib
     neovim
-    neofetch
+    kdePackages.kcalc
     krusader
     libreoffice-qt6-fresh
     brave
@@ -108,10 +110,10 @@ in
     hyprlock
     hypridle
     hyprpaper
-    hyprwall
     hyprsunset
     hyprpolkitagent
-    swaynotificationcenter
+    dunst
+    libnotify
     font-awesome
     wlogout
     playerctl
@@ -119,6 +121,18 @@ in
     squeekboard
     touchegg
     waycorner
+    pipx
+    waypaper
+    pywal
+    bibata-cursors
+    papirus-icon-theme
+    cliphist
+    nwg-dock-hyprland
+    nwg-look
+    kdePackages.qt6ct
+    rofi
+    wl-clipboard
+    wineWowPackages.waylandFull
   ];
 
   programs.vscode = {
