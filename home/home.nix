@@ -53,10 +53,12 @@ in
   # Set environment variables
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    MOZ_ENABLE_WAYLAND="1";
-    QT_QPA_PLATFORM="wayland";
-    SDL_VIDEODRIVER="wayland";
-
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+    QT_QPA_PLATFORM = "wayland";
+    SDL_VIDEODRIVER = "wayland";
+    XDG_CURRENT_DESKTOP = "hyprland";
+    XDG_SESSION_TYPE = "wayland";
+    MOZ_ENABLE_WAYLAND = "1";
   };
 
   # Enable Git and set global configurations
@@ -80,12 +82,10 @@ in
 
   # User-specific packages
   home.packages = with pkgs; [
-    qemu
     glib
     neovim
-    kdePackages.kcalc
     krusader
-    libreoffice-qt6-fresh
+    libreoffice-fresh
     brave
     vlc
     notion-app-enhanced
@@ -97,13 +97,12 @@ in
     github-desktop
     zed-editor
     discord
-    inkscape
     bottles
     nix-your-shell
     starship
     kitty
     waybar
-    wofi
+    rofi
     grc
     fzf
     hyprshot
@@ -118,7 +117,6 @@ in
     wlogout
     playerctl
     libinput
-    squeekboard
     touchegg
     waycorner
     pipx
@@ -127,12 +125,9 @@ in
     bibata-cursors
     papirus-icon-theme
     cliphist
+    wl-clipboard
     nwg-dock-hyprland
     nwg-look
-    kdePackages.qt6ct
-    rofi
-    wl-clipboard
-    wineWowPackages.waylandFull
   ];
 
   programs.vscode = {
