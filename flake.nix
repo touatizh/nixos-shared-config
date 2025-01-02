@@ -11,41 +11,49 @@
   # Flake outputs
   outputs = { self, nixpkgs, home-manager, ... }:
     let
-
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+    in {
+      nixosConfigurations.gigaos = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/gigaos/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.helmi = {
+              imports = [
+                (import ./home/home.nix { inherit pkgs; })
+               ];
+            };
+          }
+        ];
+      };
 
-    in
-    {
-        nixosConfigurations.gigaos = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/gigaos/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-            }
-          ];
-        };
+      nixosConfigurations.sp = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/sp7/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.helmi = {
+              imports = [
+                (import ./home/home.nix { inherit pkgs; })
+               ];
+            };
+          }
+        ];
+      };
 
-        nixosConfigurations.sp = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/sp7/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-            }
-          ];
-        };
-
-        homeConfigurations.home = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./home/home.nix
-          ];
-        };
+      # Optional: Centralized home-manager configuration if needed
+      homeConfigurations.home = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./home/home.nix
+        ];
+      };
     };
 }
