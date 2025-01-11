@@ -12,7 +12,7 @@
   outputs = { self, nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
     in {
       nixosConfigurations.gigaos = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -26,6 +26,7 @@
               imports = [
                 (import ./home/home.nix { inherit pkgs; })
                ];
+              home.backupFileExtension = ".bak";
             };
           }
         ];
@@ -43,6 +44,7 @@
               imports = [
                 (import ./home/home.nix { inherit pkgs; })
                ];
+              home.backupFileExtension = ".bak";
             };
           }
         ];
