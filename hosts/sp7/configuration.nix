@@ -34,14 +34,12 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.xserver = {
-      enable = true;
-      displayManager = {
-        lightdm.enable = true;
-        lightdm.greeters.gtk.enable = true; # Or use another greeter, e.g., slick-greeter
-      };
-    };
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.wayland = true;
   programs.hyprland.enable = true;
+  programs.hyprland.xwayland.enable = true;
 
   services.xserver.xkb = {
     layout = "fr";
@@ -73,10 +71,9 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
 
   environment.systemPackages = with pkgs; [
+    neovim
     surface-control
     iptsd
     btop
@@ -98,6 +95,7 @@
     libxkbcommon
     home-manager
     xdg-desktop-portal-hyprland
+    xdg-desktop-portal-wlr
   ];
 
   programs.bash = {

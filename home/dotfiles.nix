@@ -1,5 +1,5 @@
 let
-  BASEDIR = /home/helmi/.nixOs-config/home/dotfiles;
+  BASEDIR = ./dotfiles;
 in
 {
   home.file = {
@@ -7,6 +7,6 @@ in
       source = BASEDIR;
       recursive = true;
     };
-    "~/.gitconfig".source = BASEDIR+"/git/.gitconfig";
+    ".gitconfig".source = BASEDIR+"/git/.gitconfig";
   };
 }

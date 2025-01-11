@@ -14,14 +14,68 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/ab773d2c-a189-476c-ba3d-63e8f53a32b2";
+    { device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
+      options = [ "subvol=@" ];
     };
-  fileSystems."/boot" = 
-    { device = "/dev/disk/by-uuid/58B4-841B";
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = [ "subvol=@nix" ];
+    };
+
+  fileSystems."/tmp" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = [ "subvol=@tmp" ];
+    };
+
+  fileSystems."/var" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = [ "subvol=@var" ];
+    };
+
+  fileSystems."/snapshots" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = [ "subvol=@snapshots" ];
+    };
+
+  fileSystems."/home/helmi/Documents" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = [ "subvol=@docs" ];
+    };
+
+  fileSystems."/home/helmi/Development" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = [ "subvol=@dev" ];
+    };
+
+  fileSystems."/home/helmi/Media" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = [ "subvol=@media" ];
+    };
+
+  fileSystems."/home/helmi/.config" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = [ "subvol=@config" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-label/boot";
       fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
     };
-  swapDevices = [ ];
+
+  swapDevices =
+    [ { device = "/dev/disk/by-label/swap"; }
+    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

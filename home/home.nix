@@ -1,7 +1,8 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
-  dotfiles = import /home/helmi/.nixOs-config/home/dotfiles.nix;
+  unstable = import <nixos-unstable> {};
+  dotfiles = import ./dotfiles.nix;
   vscExtensions = with pkgs.vscode-extensions; [
     aaron-bond.better-comments
     adpyke.codesnap
@@ -83,10 +84,10 @@ in
   # User-specific packages
   home.packages = with pkgs; [
     glib
-    neovim
     krusader
+    nemo
     libreoffice-fresh
-    brave
+    vivaldi
     vlc
     notion-app-enhanced
     remnote
@@ -126,8 +127,7 @@ in
     papirus-icon-theme
     cliphist
     wl-clipboard
-    nwg-dock-hyprland
-    nwg-look
+    unstable.ghostty
   ];
 
   programs.vscode = {
